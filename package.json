@@ -1,0 +1,33 @@
+{
+  "name": "react-chartist",
+  "version": "0.1.0",
+  "description": "React component for Chartist.js",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/fraserxu/react-chartist.git"
+  },
+  "keywords": [
+    "react",
+    "react-component",
+    "component",
+    "chartist",
+    "graph"
+  ],
+  "author": {
+    "name": "Fraser Xu",
+    "email": "xvfeng123@gmail.com",
+    "url": "https://fraserxu.me"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fraserxu/react-chartist/issues"
+  },
+  "homepage": "https://github.com/fraserxu/react-chartist",
+  "devDependencies": {
+    "chartist": "^0.3.1"
+  },
+  "peerDependencies": {
+    "react": ">=0.10.0"
+  }
+}
