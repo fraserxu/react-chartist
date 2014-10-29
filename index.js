@@ -19,7 +19,7 @@ var ChartistGraph = React.createClass({
     var data = this.props.data
     var options = this.props.options || {}
     var responsiveOptions = this.props.responsiveOptions || []
-    new Chartist[type]('.ct-chart', data, options, responsiveOptions)
+    new Chartist[type](this.getDOMNode(), data, options, responsiveOptions)
   },
 
   render: function() {
