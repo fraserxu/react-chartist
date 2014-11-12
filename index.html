@@ -1,108 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>React-chartist by fraserxu</title>
-
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    <title>React Chartist Demo</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <h1>React-chartist</h1>
-        <p>React component for Chartist.js</p>
-
-        <p class="view"><a href="https://github.com/fraserxu/react-chartist">View the Project on GitHub <small>fraserxu/react-chartist</small></a></p>
-
-
-        <ul>
-          <li><a href="https://github.com/fraserxu/react-chartist/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/fraserxu/react-chartist/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/fraserxu/react-chartist">View On <strong>GitHub</strong></a></li>
-        </ul>
-      </header>
-      <section>
-        <h1>
-<a id="react-chartist" class="anchor" href="#react-chartist" aria-hidden="true"><span class="octicon octicon-link"></span></a>react-chartist</h1>
-
-<p>React component for Chartist.js</p>
-
-<h3>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h3>
-
-<pre><code>$ npm install react-chartist --save
-</code></pre>
-
-<h3>
-<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h3>
-
-<pre><code>var ChartistGraph = require('react-chartist')
-
-var Pie = React.createClass({
-  render: function() {
-
-    var type = 'Pie'
-    var data = {
-      series: [20, 10, 30, 40]
-    }
-
-    return (
-      &lt;div&gt;
-        &lt;ChartistGraph data={data} type={type} /&gt;
-      &lt;/div&gt;
-    )
-  }
-})
-</code></pre>
-
-<h3>
-<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h3>
-
-<p>Please check out <a href="http://gionkunz.github.io/chartist-js/api-documentation.html">Chartist.js API documentation</a> for more details of the options.</p>
-
-<ul>
-<li>data - chart data (required)</li>
-<li>type - chart type (required)</li>
-<li>options - chart options (optional)</li>
-<li>responsive-options - chart responsive options (optional)</li>
-</ul>
-
-<h3>
-<a id="note" class="anchor" href="#note" aria-hidden="true"><span class="octicon octicon-link"></span></a>Note</h3>
-
-<p>This module does not include the css files for Chartist. If you want to add it, include their CDN in your html file</p>
-
-<pre><code>&lt;link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css"&gt;
-&lt;script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"&gt;&lt;/script&gt;
-</code></pre>
-
-<p>Or use <code>bower</code> or <code>npm</code> to install Chartist and include it in your build process.</p>
-
-<pre><code>$ npm install chartist
-</code></pre>
-
-<p>Or</p>
-
-<pre><code>$ bower isntall chartist
-</code></pre>
-
-<h3>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h3>
-
-<p>MIT</p>
-      </section>
-      <footer>
-        <p>This project is maintained by <a href="https://github.com/fraserxu">fraserxu</a></p>
-        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
-      </footer>
-    </div>
-    <script src="javascripts/scale.fix.js"></script>
-    
+    <script src="bundle.js"></script>
   </body>
 </html>
