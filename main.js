@@ -66,10 +66,40 @@ var Pie = React.createClass({
 
     return (
       <div className='container'>
+        <section className='header'>
+          <h1><a href='https://github.com/fraserxu/react-chartist'>react-chartist</a></h1>
+          <p>React component for Chartist.js</p>
+        </section>
+        <section className='body'>
+          <h4>Installation:</h4>
+          <pre>
+            <code>
+              { "$ npm install react-chartist --save" }
+            </code>
+          </pre>
+        </section>
         <section className='box'>
+          <div className='box-header'>
+            <h4>Usage: </h4>
+          </div>
+          <div className='box-header'>
+            SIMPLE LINE CHART
+          </div>
           <div className='code'>
             <pre>
-              SIMPLE LINE CHART
+              <code>
+                {
+                  "var simpleLineChartData = {\n" +
+                  "  labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],\n" +
+                  "  series: [\n" +
+                  "    [12, 9, 7, 8, 5],\n" +
+                  "    [2, 1, 3.5, 7, 3],\n" +
+                  "    [1, 3, 4, 5, 6]\n" +
+                  "  ]\n" +
+                  "}\n"
+                }
+                { "<ChartistGraph data={simpleLineChartData} type={'Line'} />" }
+              </code>
             </pre>
           </div>
           <div className='graph'>
@@ -77,9 +107,26 @@ var Pie = React.createClass({
           </div>
         </section>
         <section className='box'>
+          <div className='box-header'>
+            LINE CHART WITH AREA
+          </div>
           <div className='code'>
             <pre>
-              LINE CHART WITH AREA
+              {
+                "var lineChartData = {\n" +
+                "  labels: [1, 2, 3, 4, 5, 6, 7, 8],\n" +
+                "  series: [\n" +
+                "    [5, 9, 7, 8, 5, 3, 5, 4]\n" +
+                "  ]\n" +
+                "}\n" +
+
+                "var lineChartOptions = {\n" +
+                "  low: 0,\n" +
+                "  showArea: true\n" +
+                "}\n"
+              }
+
+              { "<ChartistGraph data={lineChartData} options={lineChartOptions} type={'Line'} />" }
             </pre>
           </div>
           <div className='graph'>
@@ -87,9 +134,35 @@ var Pie = React.createClass({
           </div>
         </section>
         <section className='box'>
+          <div className='box-header'>
+            BI-POLAR LINE CHART WITH AREA ONLY
+          </div>
           <div className='code'>
             <pre>
-              BI-POLAR LINE CHART WITH AREA ONLY
+              {
+                "var biPolarLineChartData = {\n" +
+                "  labels: [1, 2, 3, 4, 5, 6, 7, 8],\n" +
+                "  series: [\n" +
+                "    [1, 2, 3, 1, -2, 0, 1, 0],\n" +
+                "    [-2, -1, -2, -1, -2.5, -1, -2, -1],\n" +
+                "    [0, 0, 0, 1, 2, 2.5, 2, 1],\n" +
+                "    [2.5, 2, 1, 0.5, 1, 0.5, -1, -2.5]\n" +
+                "  ]\n" +
+                "}\n" +
+
+                "var biPolarLineChartOptions = {\n" +
+                "  high: 3,\n" +
+                "  low: -3,\n" +
+                "  showArea: true,\n" +
+                "  showLine: false,\n" +
+                "  showPoint: false,\n" +
+                "  axisX: {\n" +
+                "    showLabel: false,\n" +
+                "    showGrid: false\n" +
+                "  }\n" +
+                "}\n"
+              }
+              { "<ChartistGraph data={biPolarLineChartData} options={biPolarLineChartOptions} type={'Line'} />" }
             </pre>
           </div>
           <div className='graph'>
@@ -97,14 +170,38 @@ var Pie = React.createClass({
           </div>
         </section>
         <section className='box'>
+          <div className='box-header'>
+            BI-POLAR BAR CHART
+          </div>
           <div className='code'>
             <pre>
-              BI-POLAR BAR CHART
+              {
+                "var biPolarBarChartData = {\n" +
+                "  labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],\n" +
+                "  series: [\n" +
+                "    [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]\n" +
+                "  ]\n" +
+                "};\n" +
+
+                "var biPolarBarChartOptions = {\n" +
+                "  high: 10,\n" +
+                "  low: -10,\n" +
+                "  axisX: {\n" +
+                "    labelInterpolationFnc: function(value, index) {\n" +
+                "      return index % 2 === 0 ? value : null;\n" +
+                "    }\n" +
+                "  }\n" +
+                "}\n"
+              }
+              { "<ChartistGraph data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />" }
             </pre>
           </div>
           <div className='graph'>
             <ChartistGraph data={biPolarBarChartData} options={biPolarBarChartOptions} type={'Line'} />
           </div>
+        </section>
+        <section className='footer'>
+          <p>Check more exmaple and API documentation on <a href='http://gionkunz.github.io/chartist-js/examples.html'>http://gionkunz.github.io/chartist-js/examples.html</a></p>
         </section>
       </div>
     )

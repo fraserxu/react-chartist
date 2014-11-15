@@ -1,3 +1,35 @@
+body {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.header {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+}
+
+.box {
+  margin: 20px auto;
+}
+
+.footer {
+  margin: 30px 0 50px;
+}
+
+pre {
+  background: #f7f7f7;
+  padding: 10px 20px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+pre code {
+  line-height: 20px;
+}
+
 /* Chartist.js 0.3.1
  * Copyright © 2014 Gion Kunz
  * Free to use under the WTFPL license.
