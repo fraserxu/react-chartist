@@ -89,6 +89,10 @@ var Pie = React.createClass({
             <pre>
               <code>
                 {
+                  "var React = require('react')\n" +
+                  "var ChartistGraph = require('react-chartist')\n" +
+                  "\n" +
+
                   "var simpleLineChartData = {\n" +
                   "  labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],\n" +
                   "  series: [\n" +
@@ -113,6 +117,10 @@ var Pie = React.createClass({
           <div className='code'>
             <pre>
               {
+                "var React = require('react')\n" +
+                "var ChartistGraph = require('react-chartist')\n" +
+                "\n" +
+
                 "var lineChartData = {\n" +
                 "  labels: [1, 2, 3, 4, 5, 6, 7, 8],\n" +
                 "  series: [\n" +
@@ -140,6 +148,10 @@ var Pie = React.createClass({
           <div className='code'>
             <pre>
               {
+                "var React = require('react')\n" +
+                "var ChartistGraph = require('react-chartist')\n" +
+                "\n" +
+
                 "var biPolarLineChartData = {\n" +
                 "  labels: [1, 2, 3, 4, 5, 6, 7, 8],\n" +
                 "  series: [\n" +
@@ -176,6 +188,10 @@ var Pie = React.createClass({
           <div className='code'>
             <pre>
               {
+                "var React = require('react')\n" +
+                "var ChartistGraph = require('react-chartist')\n" +
+                "\n" +
+
                 "var biPolarBarChartData = {\n" +
                 "  labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],\n" +
                 "  series: [\n" +
