@@ -14,17 +14,26 @@ var ChartistGraph = React.createClass({
     responsiveOptions: React.PropTypes.array
   },
 
+  componentWillReceiveProps: function(newProps) {
+    return this.updateChart(newProps);
+  },
+
+  updateChart: function(config) {
+    var type = config.type
+    var data = config.data
+    var options = config.options || {}
+    var responsiveOptions = config.responsiveOptions || []
+    return new Chartist[type](this.getDOMNode(), data, options, responsiveOptions);
+  },
+
   componentDidMount: function() {
-    var type = this.props.type
-    var data = this.props.data
-    var options = this.props.options || {}
-    var responsiveOptions = this.props.responsiveOptions || []
-    new Chartist[type](this.getDOMNode(), data, options, responsiveOptions)
+    return this.updateChart(this.props);
   },
 
   render: function() {
     return React.DOM.div({className: 'ct-chart'})
   }
-})
+
+});
 
 module.exports = ChartistGraph
