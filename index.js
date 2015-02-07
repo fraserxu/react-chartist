@@ -15,7 +15,17 @@ var ChartistGraph = React.createClass({
   },
 
   componentWillReceiveProps: function(newProps) {
-    return this.updateChart(newProps);
+    this.updateChart(newProps);
+  },
+
+  componentWillUnmount : function() {
+    if ( this.chartist ) {
+      try {
+          this.chartist.detach();
+      } catch ( err ) {
+
+      }
+    }
   },
 
   updateChart: function(config) {
@@ -23,7 +33,26 @@ var ChartistGraph = React.createClass({
     var data = config.data
     var options = config.options || {}
     var responsiveOptions = config.responsiveOptions || []
-    return new Chartist[type](this.getDOMNode(), data, options, responsiveOptions);
+    var event;
+      
+    if ( this.chartist ) {
+        try {
+            this.chartist.detach();
+        } catch ( err ) {
+            
+        }
+    }  
+    this.chartist =  new Chartist[type](this.getDOMNode(), data, options, responsiveOptions);
+
+    //register event handlers
+    if ( config.listener ) {
+        for ( event in config.listener) {
+            if ( config.listener.hasOwnProperty(event) ) {
+                this.chartist.on(event,config.listener[event]);
+            }
+        }
+    }
+
   },
 
   componentDidMount: function() {

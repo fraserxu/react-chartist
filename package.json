@@ -28,7 +28,7 @@
     "react": ">=0.10.0"
   },
   "dependencies": {
-    "chartist": "^0.3.1",
+    "chartist": "^0.7.1",
     "react": "^0.12.0"
   }
 }
