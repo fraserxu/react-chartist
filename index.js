@@ -14,11 +14,11 @@ var ChartistGraph = React.createClass({
     responsiveOptions: React.PropTypes.array
   },
 
-  componentWillReceiveProps: function (newProps) {
+  componentWillReceiveProps: function(newProps) {
     this.updateChart(newProps);
   },
 
-  componentWillUnmount: function () {
+  componentWillUnmount: function() {
     if (this.chartist) {
       try {
         this.chartist.detach();
@@ -28,7 +28,7 @@ var ChartistGraph = React.createClass({
     }
   },
 
-  updateChart: function (config) {
+  updateChart: function(config) {
     var type = config.type
     var data = config.data
     var options = config.options || {}
@@ -64,7 +64,7 @@ var ChartistGraph = React.createClass({
 
   },
 
-  componentDidMount: function () {
+  componentDidMount: function() {
     return this.updateChart(this.props);
   },
 
