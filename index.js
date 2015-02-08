@@ -14,52 +14,61 @@ var ChartistGraph = React.createClass({
     responsiveOptions: React.PropTypes.array
   },
 
-  componentWillReceiveProps: function(newProps) {
+  componentWillReceiveProps: function (newProps) {
     this.updateChart(newProps);
   },
 
-  componentWillUnmount : function() {
-    if ( this.chartist ) {
+  componentWillUnmount: function () {
+    if (this.chartist) {
       try {
-          this.chartist.detach();
-      } catch ( err ) {
+        this.chartist.detach();
+      } catch (err) {
 
       }
     }
   },
 
-  updateChart: function(config) {
+  updateChart: function (config) {
     var type = config.type
     var data = config.data
     var options = config.options || {}
     var responsiveOptions = config.responsiveOptions || []
     var event;
-      
-    if ( this.chartist ) {
-        try {
-            this.chartist.detach();
-        } catch ( err ) {
-            
-        }
-    }  
-    this.chartist =  new Chartist[type](this.getDOMNode(), data, options, responsiveOptions);
+
+    
+    if (this.chartist) {
+      //this sometimes cause some error internal within chartist.
+      try {
+        this.chartist.detach();
+      } catch (err) {
+
+      }
+    }
+    this.chartist = new Chartist[type](this.getDOMNode(), data, options, responsiveOptions);
 
     //register event handlers
-    if ( config.listener ) {
-        for ( event in config.listener) {
-            if ( config.listener.hasOwnProperty(event) ) {
-                this.chartist.on(event,config.listener[event]);
-            }
+    /**
+     * listeners: {
+     *   draw : function() {}
+     * } 
+     */
+    if (config.listener) {
+      for (event in config.listener) {
+        if (config.listener.hasOwnProperty(event)) {
+          this.chartist.on(event, config.listener[event]);
         }
+      }
     }
+    //return
+    return this.chartist;
 
   },
 
-  componentDidMount: function() {
+  componentDidMount: function () {
     return this.updateChart(this.props);
   },
 
-  render: function() {
+  render: function () {
     return React.DOM.div({className: 'ct-chart'})
   }
 
