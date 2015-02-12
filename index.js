@@ -68,7 +68,7 @@ var ChartistGraph = React.createClass({
   },
 
   render: function() {
-    return React.DOM.div({className: 'ct-chart'})
+    return React.DOM.div({className: 'ct-chart ' + this.props.className});
   }
 
 });
