@@ -73,4 +73,7 @@ var ChartistGraph = React.createClass({
 
 });
 
-module.exports = ChartistGraph
+module.exports = {
+    'ChartistGraph': ChartistGraph,
+    'Chartist': Chartist
+};
