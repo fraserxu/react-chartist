@@ -1,8 +1,8 @@
-var React = require('react')
-var ChartistGraph = require('../index')
+import React from 'react';
+import ChartistGraph from '../index';
 
-var Pie = React.createClass({
-  render: function() {
+class Pie extends React.Component {
+  render() {
 
     var data = {
       labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -29,6 +29,6 @@ var Pie = React.createClass({
       </div>
     )
   }
-})
+}
 
 React.render(<Pie />, document.body)

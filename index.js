@@ -1,55 +1,51 @@
-'use strict'
+'use strict';
 
-var React = require('react')
-var Chartist = require('chartist')
+import React from 'react';
+import Chartist from 'chartist';
 
-var ChartistGraph = React.createClass({
+class ChartistGraph extends React.Component {
 
-  displayName: 'ChartistGraph',
+  displayName: 'ChartistGraph'
 
-  propTypes: {
-    type: React.PropTypes.string.isRequired,
-    data: React.PropTypes.object.isRequired,
-    options: React.PropTypes.object,
-    responsiveOptions: React.PropTypes.array
-  },
-
-  componentWillReceiveProps: function(newProps) {
+  componentWillReceiveProps(newProps) {
     this.updateChart(newProps);
-  },
+  }
 
-  componentWillUnmount: function() {
+  componentWillUnmount() {
     if (this.chartist) {
       try {
         this.chartist.detach();
       } catch (err) {
       }
     }
-  },
+  }
 
-  updateChart: function(config) {
-    var type = config.type
-    var data = config.data
-    var options = config.options || {}
-    var responsiveOptions = config.responsiveOptions || []
-    var event;
+  componentDidMount() {
+    return this.updateChart(this.props);
+  }
 
-    
+  updateChart(config) {
+    let type = config.type;
+    let data = config.data;
+    let options = config.options || {};
+    let responsiveOptions = config.responsiveOptions || [];
+    let event;
+
     if (this.chartist) {
       //this sometimes cause some error internal within chartist.
       try {
         this.chartist.detach();
       } catch (err) {
-
+        console.err('internal chartist error: ', err);
       }
     }
-    this.chartist = new Chartist[type](this.getDOMNode(), data, options, responsiveOptions);
+    this.chartist = new Chartist[type](React.findDOMNode(this), data, options, responsiveOptions);
 
     //register event handlers
     /**
      * listeners: {
      *   draw : function() {}
-     * } 
+     * }
      */
     if (config.listener) {
       for (event in config.listener) {
@@ -58,19 +54,22 @@ var ChartistGraph = React.createClass({
         }
       }
     }
-    //return
+
     return this.chartist;
 
-  },
+  }
 
-  componentDidMount: function() {
-    return this.updateChart(this.props);
-  },
-
-  render: function() {
+  render() {
     return React.DOM.div({className: 'ct-chart'})
   }
 
-});
+}
 
-module.exports = ChartistGraph
+ChartistGraph.propTypes = {
+  type: React.PropTypes.string.isRequired,
+  data: React.PropTypes.object.isRequired,
+  options: React.PropTypes.object,
+  responsiveOptions: React.PropTypes.array
+}
+
+export default ChartistGraph;
