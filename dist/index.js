@@ -69,7 +69,7 @@ var ChartistGraph = (function (_React$Component) {
         try {
           this.chartist.detach();
         } catch (err) {
-          console.err('internal chartist error: ', err);
+          console.error('internal chartist error: ', err);
         }
       }
       this.chartist = new _Chartist2['default'][type](_React2['default'].findDOMNode(this), data, options, responsiveOptions);
