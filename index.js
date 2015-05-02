@@ -36,7 +36,7 @@ class ChartistGraph extends React.Component {
       try {
         this.chartist.detach();
       } catch (err) {
-        console.err('internal chartist error: ', err);
+        console.error('internal chartist error: ', err);
       }
     }
     this.chartist = new Chartist[type](React.findDOMNode(this), data, options, responsiveOptions);
