@@ -76,7 +76,7 @@ $ npm install chartist
 Or
 
 ```
-$ bower isntall chartist
+$ bower install chartist
 ```
 
 ### License
