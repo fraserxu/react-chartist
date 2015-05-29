@@ -79,6 +79,14 @@ Or
 $ bower install chartist
 ```
 
+### Development
+
+```
+$ npm install
+```
+
+To build run `npm run build`
+
 ### License
 
 MIT
