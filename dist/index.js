@@ -1,26 +1,24 @@
 'use strict';
 
-var _interopRequireWildcard = function (obj) { return obj && obj.__esModule ? obj : { 'default': obj }; };
-
-var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } };
-
-var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-var _inherits = function (subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; };
-
 Object.defineProperty(exports, '__esModule', {
   value: true
 });
 
-var _React = require('react');
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-var _React2 = _interopRequireWildcard(_React);
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-var _Chartist = require('chartist');
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-var _Chartist2 = _interopRequireWildcard(_Chartist);
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-'use strict';
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _chartist = require('chartist');
+
+var _chartist2 = _interopRequireDefault(_chartist);
 
 var ChartistGraph = (function (_React$Component) {
   function ChartistGraph() {
@@ -34,9 +32,6 @@ var ChartistGraph = (function (_React$Component) {
   _inherits(ChartistGraph, _React$Component);
 
   _createClass(ChartistGraph, [{
-    key: 'displayName',
-    enumerable: true
-  }, {
     key: 'componentWillReceiveProps',
     value: function componentWillReceiveProps(newProps) {
       this.updateChart(newProps);
@@ -65,25 +60,21 @@ var ChartistGraph = (function (_React$Component) {
       var event = undefined;
 
       if (this.chartist) {
-        //this sometimes cause some error internal within chartist.
-        try {
-          this.chartist.detach();
-        } catch (err) {
-          console.error('internal chartist error: ', err);
-        }
-      }
-      this.chartist = new _Chartist2['default'][type](_React2['default'].findDOMNode(this), data, options, responsiveOptions);
+        this.chartist.update(data, options, responsiveOptions);
+      } else {
+        this.chartist = new _chartist2['default'][type](_react2['default'].findDOMNode(this), data, options, responsiveOptions);
 
-      //register event handlers
-      /**
-       * listeners: {
-       *   draw : function() {}
-       * }
-       */
-      if (config.listener) {
-        for (event in config.listener) {
-          if (config.listener.hasOwnProperty(event)) {
-            this.chartist.on(event, config.listener[event]);
+        //register event handlers
+        /**
+         * listeners: {
+         *   draw : function() {}
+         * }
+         */
+        if (config.listener) {
+          for (event in config.listener) {
+            if (config.listener.hasOwnProperty(event)) {
+              this.chartist.on(event, config.listener[event]);
+            }
           }
         }
       }
@@ -93,18 +84,18 @@ var ChartistGraph = (function (_React$Component) {
   }, {
     key: 'render',
     value: function render() {
-      return _React2['default'].DOM.div({ className: 'ct-chart' });
+      return _react2['default'].DOM.div({ className: 'ct-chart' });
     }
   }]);
 
   return ChartistGraph;
-})(_React2['default'].Component);
+})(_react2['default'].Component);
 
 ChartistGraph.propTypes = {
-  type: _React2['default'].PropTypes.string.isRequired,
-  data: _React2['default'].PropTypes.object.isRequired,
-  options: _React2['default'].PropTypes.object,
-  responsiveOptions: _React2['default'].PropTypes.array
+  type: _react2['default'].PropTypes.string.isRequired,
+  data: _react2['default'].PropTypes.object.isRequired,
+  options: _react2['default'].PropTypes.object,
+  responsiveOptions: _react2['default'].PropTypes.array
 };
 
 exports['default'] = ChartistGraph;
