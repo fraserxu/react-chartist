@@ -47,19 +47,22 @@ var ChartistGraph = (function (_React$Component) {
       if (this.chartist) {
         try {
           this.chartist.detach();
-        } catch (err) {}
+        } catch (err) {
+          throw new Error('Internal chartist error', err);
+        }
       }
     }
   }, {
     key: 'componentDidMount',
     value: function componentDidMount() {
-      return this.updateChart(this.props);
+      this.updateChart(this.props);
     }
   }, {
     key: 'updateChart',
     value: function updateChart(config) {
       var type = config.type;
       var data = config.data;
+
       var options = config.options || {};
       var responsiveOptions = config.responsiveOptions || [];
       var event = undefined;
@@ -69,12 +72,6 @@ var ChartistGraph = (function (_React$Component) {
       } else {
         this.chartist = new _Chartist2['default'][type](_React2['default'].findDOMNode(this), data, options, responsiveOptions);
 
-        //register event handlers
-        /**
-         * listeners: {
-         *   draw : function() {}
-         * }
-         */
         if (config.listener) {
           for (event in config.listener) {
             if (config.listener.hasOwnProperty(event)) {

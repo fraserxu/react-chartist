@@ -16,17 +16,17 @@ class ChartistGraph extends React.Component {
       try {
         this.chartist.detach();
       } catch (err) {
+        throw new Error('Internal chartist error', err);
       }
     }
   }
 
   componentDidMount() {
-    return this.updateChart(this.props);
+    this.updateChart(this.props);
   }
 
   updateChart(config) {
-    let type = config.type;
-    let data = config.data;
+    let { type, data } = config;
     let options = config.options || {};
     let responsiveOptions = config.responsiveOptions || [];
     let event;
@@ -36,12 +36,6 @@ class ChartistGraph extends React.Component {
     } else {
       this.chartist = new Chartist[type](React.findDOMNode(this), data, options, responsiveOptions);
 
-      //register event handlers
-      /**
-       * listeners: {
-       *   draw : function() {}
-       * }
-       */
       if (config.listener) {
         for (event in config.listener) {
           if (config.listener.hasOwnProperty(event)) {
