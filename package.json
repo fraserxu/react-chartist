@@ -25,10 +25,11 @@
   },
   "homepage": "https://github.com/fraserxu/react-chartist",
   "peerDependencies": {
-    "react": ">=0.13.0"
+    "react": ">=0.13.0",
+    "chartist": ">=0.9.0"
   },
   "dependencies": {
-    "chartist": "^0.8.0",
+    "chartist": "^0.9.1",
     "react": "^0.13.2"
   },
   "scripts": {
