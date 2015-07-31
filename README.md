@@ -11,7 +11,7 @@ $ npm install react-chartist --save
 
 ### Usage
 
-```
+```JavaScript
 import React from 'react';
 import ChartistGraph from '../index';
 
