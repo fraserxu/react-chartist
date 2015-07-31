@@ -1,7 +1,6 @@
 'use strict';
 
 import React from 'react';
-import Chartist from 'chartist';
 
 class ChartistGraph extends React.Component {
 
@@ -26,6 +25,8 @@ class ChartistGraph extends React.Component {
   }
 
   updateChart(config) {
+    let Chartist = require('chartist');
+
     let { type, data } = config;
     let options = config.options || {};
     let responsiveOptions = config.responsiveOptions || [];
