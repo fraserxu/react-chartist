@@ -7,6 +7,7 @@ class ChartistGraph extends React.Component {
   displayName: 'ChartistGraph'
 
   componentWillReceiveProps(newProps) {
+    this.updateListener(this.props, true /* shouldRemoveListener */);
     this.updateChart(newProps);
   }
 
@@ -24,6 +25,20 @@ class ChartistGraph extends React.Component {
     this.updateChart(this.props);
   }
 
+  updateListener(config, shouldRemoveListener) {
+    if (this.chartist && config.listener) {
+      for (event in config.listener) {
+        if (config.listener.hasOwnProperty(event)) {
+          if (shouldRemoveListener) {
+            this.chartist.off(event, config.listener[event]);
+          } else {
+            this.chartist.on(event, config.listener[event]);
+          }
+        }
+      }
+    }
+  }
+
   updateChart(config) {
     let Chartist = require('chartist');
 
@@ -33,18 +48,11 @@ class ChartistGraph extends React.Component {
     let event;
 
     if (this.chartist) {
+      this.updateListener(config);
       this.chartist.update(data, options, responsiveOptions);
     } else {
       this.chartist = new Chartist[type](React.findDOMNode(this), data, options, responsiveOptions);
-
-      if (config.listener) {
-        for (event in config.listener) {
-          if (config.listener.hasOwnProperty(event)) {
-            this.chartist.on(event, config.listener[event]);
-          }
-        }
-      }
-
+      this.updateListener(config);
     }
 
     return this.chartist;
