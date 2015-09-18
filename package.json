@@ -33,7 +33,7 @@
     "react": "^0.13.2"
   },
   "scripts": {
-    "build": "babel index.js > dist/index.js"
+    "build": "mkdir -p dist && babel index.js > dist/index.js"
   },
   "devDependencies": {
     "babel": "^5.1.8",

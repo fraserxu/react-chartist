@@ -51,7 +51,8 @@ class ChartistGraph extends React.Component {
   }
 
   render() {
-    return React.DOM.div({className: 'ct-chart'})
+    let className = this.props.className ? ' ' + this.props.className : ''
+    return React.DOM.div({className: 'ct-chart' + className})
   }
 
 }
@@ -59,6 +60,7 @@ class ChartistGraph extends React.Component {
 ChartistGraph.propTypes = {
   type: React.PropTypes.string.isRequired,
   data: React.PropTypes.object.isRequired,
+  className: React.PropTypes.string,
   options: React.PropTypes.object,
   responsiveOptions: React.PropTypes.array
 }
