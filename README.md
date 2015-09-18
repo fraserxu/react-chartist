@@ -58,6 +58,12 @@ Please check out [Chartist.js API documentation](http://gionkunz.github.io/chart
 * options - chart options (optional)
 * responsive-options - chart responsive options (optional)
 
+To add support for aspect ratio
+
+```
+<ChartistGraph className={'ct-octave'} data={data} options={options} type={type} />
+```
+
 ### Note
 
 This module does not include the css files for Chartist. If you want to add it, include their CDN in your html file

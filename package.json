@@ -29,7 +29,7 @@
     "chartist": ">=0.9.0"
   },
   "dependencies": {
-    "chartist": "^0.9.1",
+    "chartist": "^0.9.4",
     "react": "^0.13.2"
   },
   "scripts": {
