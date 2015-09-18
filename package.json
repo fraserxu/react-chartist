@@ -1,6 +1,6 @@
 {
   "name": "react-chartist",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "React component for Chartist.js",
   "main": "dist/index.js",
   "repository": {
