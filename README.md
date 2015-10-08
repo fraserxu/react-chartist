@@ -1,7 +1,11 @@
 react-chartist
 ==============
 
-React component for Chartist.js
+[![NPM version][npm-image]][npm-url]
+[![Downloads][downloads-image]][downloads-url]
+
+
+React component for [Chartist.js](https://gionkunz.github.io/chartist-js/)
 
 ### Installation
 
@@ -13,6 +17,7 @@ $ npm install react-chartist --save
 
 ```JavaScript
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ChartistGraph from '../index';
 
 class Pie extends React.Component {
@@ -45,7 +50,7 @@ class Pie extends React.Component {
   }
 }
 
-React.render(<Pie />, document.body)
+ReactDOM.render(<Pie />, document.body)
 
 ```
 
@@ -60,7 +65,7 @@ Please check out [Chartist.js API documentation](http://gionkunz.github.io/chart
 
 To add support for aspect ratio
 
-```
+```HTML
 <ChartistGraph className={'ct-octave'} data={data} options={options} type={type} />
 ```
 
@@ -68,7 +73,7 @@ To add support for aspect ratio
 
 This module does not include the css files for Chartist. If you want to add it, include their CDN in your html file
 
-```
+```HTML
 <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
 <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 ```
@@ -93,6 +98,16 @@ $ npm install
 
 To build run `npm run build`
 
+### Changelog
+
+If you want to support react version under v0.13, use react-chartist@v0.9.0
+
 ### License
 
 MIT
+
+[npm-image]: https://img.shields.io/npm/v/react-chartist.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/react-chartist
+[downloads-image]: http://img.shields.io/npm/dm/react-chartist.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/react-chartist
+
