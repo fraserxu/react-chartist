@@ -100,7 +100,7 @@ To build run `npm run build`
 
 ### Changelog
 
-If you want to support react version under v0.13, use react-chartist@v0.9.0
+If you want to support react version under v0.13, use `npm install react-chartist@0.9.0`
 
 ### License
 
