@@ -60,6 +60,7 @@ Please check out [Chartist.js API documentation](http://gionkunz.github.io/chart
 
 * data - chart data (required)
 * type - chart type (required)
+* style - inline css styles (optional)
 * options - chart options (optional)
 * responsive-options - chart responsive options (optional)
 
