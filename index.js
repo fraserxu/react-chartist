@@ -53,7 +53,8 @@ class ChartistGraph extends Component {
 
   render() {
     const className = this.props.className ? ' ' + this.props.className : ''
-    return (<div className={'ct-chart' + className} />)
+    const style = this.props.style ? this.props.style : {};
+    return (<div className={'ct-chart' + className} style={style} />)
   }
 
 }
