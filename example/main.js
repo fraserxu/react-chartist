@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import ChartistGraph from '../index';
 
 class Pie extends React.Component {
@@ -32,4 +33,4 @@ class Pie extends React.Component {
   }
 }
 
-React.render(<Pie />, document.body)
+ReactDOM.render(<Pie />, document.getElementById('react-chart'))
