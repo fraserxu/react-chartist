@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ChartistGraph from '../index';
+import { Graph, Interpolation } from '../index';
 
 class Pie extends React.Component {
   render() {
@@ -27,7 +27,7 @@ class Pie extends React.Component {
 
     return (
       <div>
-        <ChartistGraph className={aspectRatio} data={data} options={options} type={type} />
+        <Graph className={aspectRatio} data={data} options={options} type={type} />
       </div>
     )
   }

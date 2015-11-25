@@ -3,6 +3,8 @@
 import React, {Component} from 'react';
 import {findDOMNode} from 'react-dom';
 
+const Chartist = require('chartist');
+
 class ChartistGraph extends Component {
 
   displayName: 'ChartistGraph'
@@ -26,8 +28,6 @@ class ChartistGraph extends Component {
   }
 
   updateChart(config) {
-    let Chartist = require('chartist');
-
     let { type, data } = config;
     let options = config.options || {};
     let responsiveOptions = config.responsiveOptions || [];
@@ -45,7 +45,6 @@ class ChartistGraph extends Component {
           }
         }
       }
-
     }
 
     return this.chartist;
@@ -56,7 +55,6 @@ class ChartistGraph extends Component {
     const style = this.props.style ? this.props.style : {};
     return (<div className={'ct-chart' + className} style={style} />)
   }
-
 }
 
 ChartistGraph.propTypes = {
@@ -65,6 +63,7 @@ ChartistGraph.propTypes = {
   className: React.PropTypes.string,
   options: React.PropTypes.object,
   responsiveOptions: React.PropTypes.array
-}
+};
 
-export default ChartistGraph;
+export const Graph = ChartistGraph;
+export const Interpolation = Chartist.Interpolation;
