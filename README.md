@@ -102,14 +102,14 @@ To build run `npm run build`
 
 ### Changelog
 
-If you want to support react version under v0.13, use `npm install react-chartist@0.9.0`
+Updated package to expose the entire Chartist API.
 
 ### License
 
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/react-chartist.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/react-chartist
-[downloads-image]: http://img.shields.io/npm/dm/react-chartist.svg?style=flat-square
-[downloads-url]: https://npmjs.org/package/react-chartist
+[npm-image]: https://img.shields.io/npm/v/rc-chartist.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/rc-chartist
+[downloads-image]: https://img.shields.io/npm/dm/rc-chartist.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/rc-chartist
 
