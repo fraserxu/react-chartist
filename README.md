@@ -77,7 +77,6 @@ This module does not include the css files for Chartist. If you want to add it, 
 
 ```HTML
 <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 ```
 
 Or use `bower` or `npm` to install Chartist and include it in your build process.
