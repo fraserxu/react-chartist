@@ -1,4 +1,4 @@
-react-chartist
+rc-chartist
 ==============
 
 [![NPM version][npm-image]][npm-url]
