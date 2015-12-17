@@ -68,7 +68,7 @@ Please check out [Chartist.js API documentation](http://gionkunz.github.io/chart
 To add support for aspect ratio
 
 ```HTML
-<ChartistGraph className={'ct-octave'} data={data} options={options} type={type} />
+<Graph className={'ct-octave'} data={data} options={options} type={type} />
 ```
 
 ### Note
