@@ -10,7 +10,7 @@ React component for [Chartist.js](https://gionkunz.github.io/chartist-js/)
 ### Installation
 
 ```
-$ npm install react-chartist --save
+$ npm install rc-chartist --save
 ```
 
 ### Usage
