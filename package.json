@@ -1,11 +1,11 @@
 {
-  "name": "react-chartist",
+  "name": "rc-chartist",
   "version": "0.10.1",
   "description": "React component for Chartist.js",
   "main": "dist/index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/fraserxu/react-chartist.git"
+    "url": "git://github.com/loljs/react-chartist.git"
   },
   "keywords": [
     "react",
@@ -15,18 +15,18 @@
     "graph"
   ],
   "author": {
-    "name": "Fraser Xu",
-    "email": "xvfeng123@gmail.com",
-    "url": "https://fraserxu.me"
+    "name": "Jon Brito",
+    "email": "dev.jon.brito@gmail.com",
+    "url": "https://github.com/loljs"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/fraserxu/react-chartist/issues"
+    "url": "https://github.com/loljs/react-chartist/issues"
   },
-  "homepage": "https://github.com/fraserxu/react-chartist",
+  "homepage": "https://github.com/loljs/react-chartist",
   "peerDependencies": {
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
   },
   "dependencies": {
     "chartist": "^0.9.4"

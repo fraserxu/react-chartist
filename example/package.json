@@ -1,5 +1,5 @@
 {
-  "name": "react-chartist",
+  "name": "rc-chartist",
   "scripts": {
     "browser-sync": "browser-sync start --server --files './bundle.js'",
     "watch-js": "watchify main.js -t babelify -o bundle.js -dv",
