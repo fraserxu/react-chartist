@@ -9,7 +9,17 @@ class ChartistGraph extends Component {
 
   displayName: 'ChartistGraph'
 
-  componentWillReceiveProps(newProps) {
+  shouldComponentUpdate(newProps) {
+    const { data, className, type, options, style, responsiveOptions } = this.props;
+    return data !== newProps.data
+      || className !== newProps.className
+      || type !== newProps.type
+      || options !== newProps.options
+      || style !== newProps.style
+      || responsiveOptions !== newProps.responsiveOptions;
+  }
+
+  componentWillUpdate(newProps) {
     this.updateChart(newProps);
   }
 
