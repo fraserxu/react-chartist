@@ -1,4 +1,4 @@
-react-chartist
+rc-chartist
 ==============
 
 [![NPM version][npm-image]][npm-url]
@@ -10,7 +10,7 @@ React component for [Chartist.js](https://gionkunz.github.io/chartist-js/)
 ### Installation
 
 ```
-$ npm install react-chartist --save
+$ npm install rc-chartist --save
 ```
 
 ### Usage
@@ -18,10 +18,10 @@ $ npm install react-chartist --save
 ```JavaScript
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ChartistGraph from '../index';
+import { Graph, Interpolation } from '../index';
 
 class Pie extends React.Component {
-  render() {
+  render () {
 
     var data = {
       labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
@@ -33,6 +33,7 @@ class Pie extends React.Component {
     var options = {
       high: 10,
       low: -10,
+      // lineSmoothing: Interpolation.simple(),
       axisX: {
         labelInterpolationFnc: function(value, index) {
           return index % 2 === 0 ? value : null;
@@ -44,7 +45,7 @@ class Pie extends React.Component {
 
     return (
       <div>
-        <ChartistGraph data={data} options={options} type={type} />
+        <Graph data={data} options={options} type={type} />
       </div>
     )
   }
@@ -67,7 +68,7 @@ Please check out [Chartist.js API documentation](http://gionkunz.github.io/chart
 To add support for aspect ratio
 
 ```HTML
-<ChartistGraph className={'ct-octave'} data={data} options={options} type={type} />
+<Graph className={'ct-octave'} data={data} options={options} type={type} />
 ```
 
 ### Note
@@ -76,7 +77,6 @@ This module does not include the css files for Chartist. If you want to add it, 
 
 ```HTML
 <link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 ```
 
 Or use `bower` or `npm` to install Chartist and include it in your build process.
@@ -101,14 +101,14 @@ To build run `npm run build`
 
 ### Changelog
 
-If you want to support react version under v0.13, use `npm install react-chartist@0.9.0`
+Updated package to expose the entire Chartist API.
 
 ### License
 
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/react-chartist.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/react-chartist
-[downloads-image]: http://img.shields.io/npm/dm/react-chartist.svg?style=flat-square
-[downloads-url]: https://npmjs.org/package/react-chartist
+[npm-image]: https://img.shields.io/npm/v/rc-chartist.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/rc-chartist
+[downloads-image]: https://img.shields.io/npm/dm/rc-chartist.svg?style=flat-square
+[downloads-url]: https://npmjs.org/package/rc-chartist
 

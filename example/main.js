@@ -1,14 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ChartistGraph from '../index';
+import { Graph, Interpolation } from '../index';
 
 class Pie extends React.Component {
-  render() {
+  render () {
 
     var data = {
-      labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
+      labels: [ 'W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10' ],
       series: [
-        [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
+        [ 1, 2, 4, 8, 6, -2, -1, -4, -6, -2 ]
       ]
     };
 
@@ -27,10 +27,10 @@ class Pie extends React.Component {
 
     return (
       <div>
-        <ChartistGraph className={aspectRatio} data={data} options={options} type={type} />
+        <Graph className={aspectRatio} data={data} options={options} type={type} />
       </div>
     )
   }
 }
 
-ReactDOM.render(<Pie />, document.getElementById('react-chart'))
+ReactDOM.render(<Pie />, document.getElementById('react-chart'));
