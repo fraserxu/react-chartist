@@ -63,7 +63,8 @@ ChartistGraph.propTypes = {
   data: React.PropTypes.object.isRequired,
   className: React.PropTypes.string,
   options: React.PropTypes.object,
-  responsiveOptions: React.PropTypes.array
+  responsiveOptions: React.PropTypes.array,
+  style: React.PropTypes.object
 }
 
 export default ChartistGraph;
