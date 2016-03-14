@@ -1,7 +1,6 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {findDOMNode} from 'react-dom';
 
 const Chartist = require('chartist');
 
@@ -50,9 +49,8 @@ class ChartistGraph extends Component {
 
     if (this.chartist) {
       this.chartist.update(data, options, responsiveOptions);
-    }
-    else {
-      this.chartist = new Chartist[type](findDOMNode(this), data, options, responsiveOptions);
+    } else {
+      this.chartist = new Chartist[type](this.refs.chart, data, options, responsiveOptions);
 
       if (config.listener) {
         for (event in config.listener) {
@@ -69,8 +67,7 @@ class ChartistGraph extends Component {
   render() {
     const className = this.props.className ? ' ' + this.props.className : '';
     const style = this.props.style ? this.props.style : {};
-
-    return (<div className={'ct-chart' + className} style={style}/>);
+    return (<div className={'ct-chart' + className} ref='chart' style={style} />)
   }
 }
 
@@ -79,8 +76,9 @@ ChartistGraph.propTypes = {
   data: React.PropTypes.object.isRequired,
   className: React.PropTypes.string,
   options: React.PropTypes.object,
-  responsiveOptions: React.PropTypes.array
-};
+  responsiveOptions: React.PropTypes.array,
+  style: React.PropTypes.object
+}
 
 export const Graph = ChartistGraph;
 export const Interpolation = Chartist.Interpolation;
