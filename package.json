@@ -31,12 +31,18 @@
     "chartist": "^0.9.4"
   },
   "scripts": {
-    "build": "mkdir -p dist && babel index.js > dist/index.js"
+    "build": "mkdir -p dist && babel index.js > dist/index.js",
+    "test": "mocha test/.setup.js test/**/*.spec.js"
   },
   "devDependencies": {
     "babel": "^5.1.8",
     "babelify": "^5.0.3",
     "browserify": "^8.1.0",
+    "chai": "^3.5.0",
+    "enzyme": "^2.1.0",
+    "jsdom": "^8.1.0",
+    "mocha": "^2.4.5",
+    "react-addons-test-utils": "^0.14.3",
     "watchify": "^2.2.1"
   }
 }
