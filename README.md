@@ -3,7 +3,7 @@ rc-chartist
 
 [![NPM version][npm-image]][npm-url]
 [![Downloads][downloads-image]][downloads-url]
-
+[![Travis](https://img.shields.io/travis/lolJS/react-chartist.svg)]()
 
 React component for [Chartist.js](https://gionkunz.github.io/chartist-js/)
 
