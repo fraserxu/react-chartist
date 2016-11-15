@@ -27,9 +27,6 @@
   "peerDependencies": {
     "react": "^0.14.0 || ^15.0.0-0"
   },
-  "dependencies": {
-    "chartist": "^0.9.4"
-  },
   "scripts": {
     "build": "mkdir -p dist && babel index.js > dist/index.js"
   },
@@ -38,5 +35,8 @@
     "babelify": "^5.0.3",
     "browserify": "^8.1.0",
     "watchify": "^2.2.1"
+  },
+  "peerDependencies": {
+    "chartist": "^0.10.1"
   }
 }
