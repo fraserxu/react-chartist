@@ -57,7 +57,7 @@ class ChartistGraph extends Component {
 }
 
 ChartistGraph.propTypes = {
-  type: React.PropTypes.string.isRequired,
+  type: React.PropTypes.oneOf(['Line', 'Bar', 'Pie']).isRequired,
   data: React.PropTypes.object.isRequired,
   className: React.PropTypes.string,
   options: React.PropTypes.object,
