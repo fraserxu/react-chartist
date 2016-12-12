@@ -40,7 +40,7 @@ class Pie extends React.Component {
       }
     };
 
-    var type = 'Bar'
+    var type = 'Pie'
 
     return (
       <div>
