@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ChartistGraph from '../index';
 
-class Pie extends React.Component {
+class Bar extends React.Component {
   render() {
 
     var data = {
@@ -33,4 +33,4 @@ class Pie extends React.Component {
   }
 }
 
-ReactDOM.render(<Pie />, document.getElementById('react-chart'))
+ReactDOM.render(<Bar />, document.getElementById('react-chart'))
