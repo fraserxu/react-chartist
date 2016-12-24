@@ -1,8 +1,6 @@
-import React, {Component} from 'react';
+import React from 'react';
 
-class ChartistGraph extends Component {
-
-  displayName: 'ChartistGraph'
+export default class ChartistGraph extends Component {
 
   componentWillReceiveProps(newProps) {
     this.updateChart(newProps);
@@ -49,9 +47,9 @@ class ChartistGraph extends Component {
   }
 
   render() {
-    const className = this.props.className ? ' ' + this.props.className : ''
+    const className = this.props.className ? ' ' + this.props.className : '';
     const style = this.props.style ? this.props.style : {};
-    return (<div className={'ct-chart' + className} ref='chart' style={style} />)
+    return (<div className={'ct-chart' + className} ref='chart' style={style} />);
   }
 
 }
@@ -62,7 +60,5 @@ ChartistGraph.propTypes = {
   className: React.PropTypes.string,
   options: React.PropTypes.object,
   responsiveOptions: React.PropTypes.array,
-  style: React.PropTypes.object
+  style: React.PropTypes.object,
 }
-
-export default ChartistGraph;
