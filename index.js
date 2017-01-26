@@ -48,7 +48,7 @@ export default class ChartistGraph extends Component {
     const { className, style, children, data } = this.props
     return (
       <div className={`ct-chart ${className}`} ref='chart' style={style}>
-         {cloneElement(children, { this.props })}
+         {cloneElement(children, { ...this.props })}
       </div>
     )
   }
