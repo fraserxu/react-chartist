@@ -51,7 +51,7 @@ class ChartistGraph extends Component {
   render() {
     const { className, style, children, data, type } = this.props;
     return (
-      <div className={`ct-chart ${className}`} ref='chart' style={style}>
+      <div className={`ct-chart ${className || ''}`} ref='chart' style={style}>
          {children && cloneElement(children, { type, data })}
       </div>
     )
