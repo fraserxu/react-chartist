@@ -1,4 +1,4 @@
-import React, { Component, cloneElement } from 'react';
+import React, { Component, cloneElement, Children } from 'react';
 
 class ChartistGraph extends Component {
 
@@ -42,7 +42,6 @@ class ChartistGraph extends Component {
           }
         }
       }
-
     }
 
     return this.chartist;
@@ -50,13 +49,18 @@ class ChartistGraph extends Component {
 
   render() {
     const { className, style, children, data, type } = this.props;
+    const childrenWithProps = children && Children.map(children, (child) => (
+      cloneElement(child, {
+        type,
+        data
+      })
+    ));
     return (
       <div className={`ct-chart ${className || ''}`} ref='chart' style={style}>
-         {children && cloneElement(children, { type, data })}
+         {childrenWithProps}
       </div>
     )
   }
-
 }
 
 ChartistGraph.propTypes = {
