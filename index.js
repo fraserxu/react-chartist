@@ -1,4 +1,5 @@
 import React, { Component, cloneElement, Children } from 'react';
+import PropTypes from 'prop-types'
 
 class ChartistGraph extends Component {
 
@@ -64,12 +65,12 @@ class ChartistGraph extends Component {
 }
 
 ChartistGraph.propTypes = {
-  type: React.PropTypes.oneOf(['Line', 'Bar', 'Pie']).isRequired,
-  data: React.PropTypes.object.isRequired,
-  className: React.PropTypes.string,
-  options: React.PropTypes.object,
-  responsiveOptions: React.PropTypes.array,
-  style: React.PropTypes.object
+  type: PropTypes.oneOf(['Line', 'Bar', 'Pie']).isRequired,
+  data: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  options: PropTypes.object,
+  responsiveOptions: PropTypes.array,
+  style: PropTypes.object
 }
 
 export default ChartistGraph;

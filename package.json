@@ -33,7 +33,7 @@
   "homepage": "https://github.com/fraserxu/react-chartist",
   "peerDependencies": {
     "chartist": "^0.10.1",
-    "react": "^0.14.0 || ^15.0.0-0"
+    "react": "^0.14.9 || ^15.3.0"
   },
   "scripts": {
     "build": "mkdir -p dist && babel index.js -o dist/index.js"
@@ -43,5 +43,8 @@
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-react": "^6.16.0",
     "babel-preset-stage-0": "^6.16.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.5.8"
   }
 }
