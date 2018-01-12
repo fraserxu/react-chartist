@@ -12,6 +12,11 @@ React component for [Chartist.js](https://gionkunz.github.io/chartist-js/)
 ```
 $ npm install react-chartist --save
 ```
+You need to install chartist if you do not have it installed
+
+```
+$ npm install chartist --save
+```
 
 ### Usage
 
