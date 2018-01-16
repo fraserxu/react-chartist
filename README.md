@@ -12,6 +12,11 @@ React component for [Chartist.js](https://gionkunz.github.io/chartist-js/)
 ```
 $ npm install react-chartist --save
 ```
+Chartist is a peer dependency to react chartist. You need to install it if you do not have it installed already.
+
+```
+$ npm install chartist --save
+```
 
 ### Usage
 
