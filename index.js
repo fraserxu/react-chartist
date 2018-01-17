@@ -34,7 +34,7 @@ class ChartistGraph extends Component {
     if (this.chartist) {
       this.chartist.update(data, options, responsiveOptions);
     } else {
-      this.chartist = new Chartist[type](this.refs.chart, data, options, responsiveOptions);
+      this.chartist = new Chartist[type](this.chart, data, options, responsiveOptions);
 
       if (config.listener) {
         for (event in config.listener) {
@@ -57,7 +57,7 @@ class ChartistGraph extends Component {
       })
     ));
     return (
-      <div className={`ct-chart ${className || ''}`} ref='chart' style={style}>
+      <div className={`ct-chart ${className || ''}`} ref={(ref) => this.chart = ref } style={style}>
          {childrenWithProps}
       </div>
     )
