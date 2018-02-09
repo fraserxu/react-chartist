@@ -39,7 +39,7 @@ class ChartistGraph extends Component {
       if (config.listener) {
         for (event in config.listener) {
           if (config.listener.hasOwnProperty(event)) {
-            this.chartist.on(event, config.listener[event]);
+            this.chartist.on(event, (...args) => config.listener[event]({ args }, this.chartist));
           }
         }
       }
