@@ -26,7 +26,7 @@ class ChartistGraph extends Component {
   updateChart(config) {
     let Chartist = require('chartist');
 
-    let { type, data } = config;
+    let { type, data, getInstance } = config;
     let options = config.options || {};
     let responsiveOptions = config.responsiveOptions || [];
     let event;
@@ -44,7 +44,8 @@ class ChartistGraph extends Component {
         }
       }
     }
-
+    
+    getInstance(this.chartist);
     return this.chartist;
   }
 
