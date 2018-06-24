@@ -31,9 +31,17 @@ class ChartistGraph extends Component {
     let responsiveOptions = config.responsiveOptions || [];
     let event;
 
-    if (this.chartist) {
+    if (this.chartist && !config.forceRecreation) {
       this.chartist.update(data, options, responsiveOptions);
     } else {
+      if (this.chartist && config.listener && config.forceRecreation) {
+        for (event in config.listener) {
+          if (config.listener.hasOwnProperty(event)) {
+            this.chartist.off(event, config.listener[event]);
+          }
+        }
+      }
+      
       this.chartist = new Chartist[type](this.chart, data, options, responsiveOptions);
 
       if (config.listener) {
@@ -69,6 +77,8 @@ ChartistGraph.propTypes = {
   data: PropTypes.object.isRequired,
   className: PropTypes.string,
   options: PropTypes.object,
+  listener: PropTypes.object,
+  forceRecreation: PropTypes.bool,
   responsiveOptions: PropTypes.array,
   style: PropTypes.object
 }
