@@ -1,14 +1,37 @@
+import { ChartitGraphProps } from './index.d';
 import * as React from 'react';
-import { IChartOptions } from 'chartist';
+import {
+  IChartOptions,
+  IResponsiveOptionTuple,
+  ILineChartOptions,
+  IBarChartOptions,
+  IPieChartOptions,
+} from 'chartist';
 
 export interface ChartitGraphProps {
-  type: 'Line' | 'Bar' | 'Pie';
+  type: string;
   data: object;
   className?: string;
   options?: IChartOptions;
-  responsiveOptions?: Array;
   style?: React.CSSProperties;
 }
 
-export class ChartistGraph extends React.Component<ChartitGraphProps> {}
-export default ChartistGraph;
+export interface ChartitGraphLineProps extends ChartitGraphProps {
+  type: 'Line';
+  options?: ILineChartOptions;
+  responseOptions?: Array<IResponsiveOptionTuple<ILineChartOptions>>;
+}
+
+export interface ChartitGraphPieProps extends ChartitGraphProps {
+  type: 'Pie';
+  options?: IPieChartOptions;
+  responseOptions?: Array<IResponsiveOptionTuple<IPieChartOptions>>;
+}
+
+export interface ChartitGraphBarProps extends ChartitGraphProps {
+  type: 'Bar';
+  options: IBarChartOptions;
+  responseOptions?: Array<IResponsiveOptionTuple<IBarChartOptions>>;
+}
+
+export default class ChartistGraph extends React.Component<ChartitGraphProps> {}
