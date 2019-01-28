@@ -36,7 +36,8 @@
     "react": "^0.14.9 || ^15.0.0 || ^16.0.0"
   },
   "scripts": {
-    "build": "mkdir -p dist && babel index.js -o dist/index.js"
+    "build": "mkdir -p dist && babel index.js -o dist/index.js",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
