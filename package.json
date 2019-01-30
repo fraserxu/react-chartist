@@ -1,6 +1,6 @@
 {
   "name": "react-chartist",
-  "version": "0.13.1",
+  "version": "0.13.2",
   "description": "React component for Chartist.js",
   "main": "dist/index.js",
   "repository": {
@@ -37,6 +37,7 @@
   },
   "scripts": {
     "build": "mkdir -p dist && babel index.js -o dist/index.js && cp index.d.ts dist/index.d.ts"
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/chartist": "^0.9.43",
