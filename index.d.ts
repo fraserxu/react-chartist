@@ -13,6 +13,7 @@ export interface ChartitGraphProps {
   data: object;
   className?: string;
   options?: IChartOptions;
+  listener?: any;
   style?: React.CSSProperties;
 }
 
