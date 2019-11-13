@@ -1,4 +1,3 @@
-import { ChartitGraphProps } from './index.d';
 import * as React from 'react';
 import {
   IChartOptions,
