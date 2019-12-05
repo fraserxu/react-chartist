@@ -3,10 +3,20 @@ import PropTypes from 'prop-types'
 
 class ChartistGraph extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      type: '',
+    }
+  }
+
   displayName: 'ChartistGraph'
 
-  componentWillReceiveProps(newProps) {
-    this.updateChart(newProps);
+  static getDerivedStateFromProps(nextProps, prevState) {
+    if (nextProps.type !== prevState.type) {
+      return { ...nextProps }
+    }
+    return null;
   }
 
   componentWillUnmount() {
