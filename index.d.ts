@@ -12,6 +12,8 @@ export interface ChartitGraphProps {
   data: object;
   className?: string;
   options?: IChartOptions;
+  listener?: any;
+  responsiveOptions?: any;
   style?: React.CSSProperties;
 }
 
