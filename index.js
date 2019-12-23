@@ -3,21 +3,7 @@ import PropTypes from 'prop-types'
 
 class ChartistGraph extends Component {
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      type: '',
-    }
-  }
-
   displayName: 'ChartistGraph'
-
-  static getDerivedStateFromProps(nextProps, prevState) {
-    if (nextProps.type !== prevState.type) {
-      return { ...nextProps }
-    }
-    return null;
-  }
 
   componentWillUnmount() {
     if (this.chartist) {
@@ -30,6 +16,10 @@ class ChartistGraph extends Component {
   }
 
   componentDidMount() {
+    this.updateChart(this.props);
+  }
+
+  componentDidUpdate() {
     this.updateChart(this.props);
   }
 
@@ -67,8 +57,8 @@ class ChartistGraph extends Component {
       })
     ));
     return (
-      <div className={`ct-chart ${className || ''}`} ref={(ref) => this.chart = ref } style={style}>
-         {childrenWithProps}
+      <div className={`ct-chart ${className || ''}`} ref={(ref) => this.chart = ref} style={style}>
+        {childrenWithProps}
       </div>
     )
   }
