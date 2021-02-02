@@ -33,7 +33,7 @@
   "homepage": "https://github.com/fraserxu/react-chartist",
   "peerDependencies": {
     "chartist": "^0.10.1",
-    "react": "^0.14.9 || ^15.0.0 || ^16.0.0"
+    "react": "^0.14.9 || ^15.0.0 || ^16.0.0 || ^17.0.0"
   },
   "scripts": {
     "build": "mkdir -p dist && babel index.js -o dist/index.js && cp index.d.ts dist/index.d.ts",
