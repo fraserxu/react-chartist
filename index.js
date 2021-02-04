@@ -31,7 +31,7 @@ class ChartistGraph extends Component {
     let responsiveOptions = config.responsiveOptions || [];
     let event;
 
-    if (this.chartist) {
+    if (this.chartist && this.chartist instanceof Chartist[type]) {
       this.chartist.update(data, options, responsiveOptions);
     } else {
       this.chartist = new Chartist[type](this.chart, data, options, responsiveOptions);
