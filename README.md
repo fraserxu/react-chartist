@@ -45,7 +45,7 @@ class Bar extends React.Component {
       }
     };
 
-    var type = 'Bar'
+    var type = 'BarChart'
 
     return (
       <div>
