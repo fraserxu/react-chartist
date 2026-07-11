@@ -1,54 +1,79 @@
 {
   "name": "react-chartist",
-  "version": "0.14.4",
-  "description": "React component for Chartist.js",
-  "main": "dist/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/fraserxu/react-chartist.git"
-  },
+  "version": "1.0.0-rc.1",
+  "description": "A small, typed React component for Chartist.js",
   "keywords": [
     "react",
     "react-component",
-    "component",
     "chartist",
-    "graph"
+    "charts",
+    "svg"
   ],
+  "license": "MIT",
   "author": {
     "name": "Fraser Xu",
     "email": "xvfeng123@gmail.com",
     "url": "https://fraserxu.me"
   },
-  "babel": {
-    "presets": [
-      "react",
-      "es2015",
-      "stage-0"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fraserxu/react-chartist.git"
   },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/fraserxu/react-chartist/issues"
   },
-  "homepage": "https://github.com/fraserxu/react-chartist",
-  "peerDependencies": {
-    "chartist": "^0.10.1",
-    "react": "^0.14.9 || ^15.0.0 || ^16.0.0 || ^17.0.0"
+  "homepage": "https://github.com/fraserxu/react-chartist#readme",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
   },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "engines": {
+    "node": ">=18.18"
+  },
+  "packageManager": "npm@11.18.0",
   "scripts": {
-    "build": "mkdir -p dist && babel index.js -o dist/index.js && cp index.d.ts dist/index.d.ts",
-    "prepublishOnly": "npm run build"
+    "build": "tsup && tsc --project tsconfig.build.json",
+    "check": "npm run lint && npm run typecheck && npm run test && npm run build && npm run typecheck:package",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "prepublishOnly": "npm run check",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "typecheck:package": "tsc --ignoreConfig --noEmit --strict --skipLibCheck --target ES2022 --module NodeNext --moduleResolution NodeNext test/package-consumer.mts"
+  },
+  "peerDependencies": {
+    "chartist": "^1.5.0",
+    "react": "^18.2.0 || ^19.0.0"
+  },
+  "overrides": {
+    "esbuild": "^0.28.1"
   },
   "devDependencies": {
-    "@types/chartist": "^0.9.43",
-    "@types/react": "^16.7.17",
-    "@types/react-dom": "^16.0.11",
-    "babel-cli": "^6.18.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "babel-preset-stage-0": "^6.16.0"
-  },
-  "dependencies": {
-    "prop-types": "^15.5.8"
+    "@biomejs/biome": "^2.5.3",
+    "@testing-library/react": "^16.3.2",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "chartist": "^1.5.0",
+    "jsdom": "^29.1.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "tsup": "^8.5.1",
+    "typescript": "^7.0.2",
+    "vitest": "^4.1.10"
   }
 }

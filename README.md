@@ -1,118 +1,158 @@
-react-chartist
-==============
+# react-chartist
 
-[![NPM version][npm-image]][npm-url]
-[![Downloads][downloads-image]][downloads-url]
+[![npm](https://img.shields.io/npm/v/react-chartist.svg)](https://www.npmjs.com/package/react-chartist)
+[![CI](https://github.com/fraserxu/react-chartist/actions/workflows/ci.yml/badge.svg)](https://github.com/fraserxu/react-chartist/actions/workflows/ci.yml)
+[![license](https://img.shields.io/npm/l/react-chartist.svg)](LICENSE)
 
+A small, typed React component for [Chartist.js](https://chartist.dev/).
 
-React component for [Chartist.js](https://gionkunz.github.io/chartist-js/)
+Version 1 is a modern reboot for Chartist 1.x and React 18/19. It keeps the familiar
+`<ChartistGraph>` API while replacing the legacy Babel build and old Chartist constructors.
 
-### Installation
+## Install
 
-```
-$ npm install react-chartist --save
-```
-Chartist is a peer dependency to react chartist. You need to install it if you do not have it installed already.
-
-```
-$ npm install chartist --save
+```sh
+npm install react-chartist chartist
 ```
 
-### Usage
+Import Chartist's stylesheet once in your application:
 
-```JavaScript
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ChartistGraph from 'react-chartist';
+```ts
+import "chartist/dist/index.css";
+```
 
-class Bar extends React.Component {
-  render() {
+## Usage
 
-    var data = {
-      labels: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'],
-      series: [
-        [1, 2, 4, 8, 6, -2, -1, -4, -6, -2]
-      ]
-    };
+```tsx
+import { useMemo } from "react";
+import ChartistGraph from "react-chartist";
+import "chartist/dist/index.css";
 
-    var options = {
-      high: 10,
-      low: -10,
-      axisX: {
-        labelInterpolationFnc: function(value, index) {
-          return index % 2 === 0 ? value : null;
-        }
-      }
-    };
+export function WeeklySalesChart() {
+  const data = useMemo(
+    () => ({
+      labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+      series: [[5, 9, 7, 8, 5]],
+    }),
+    [],
+  );
 
-    var type = 'Bar'
+  const options = useMemo(
+    () => ({
+      fullWidth: true,
+      low: 0,
+      showArea: true,
+    }),
+    [],
+  );
 
-    return (
-      <div>
-        <ChartistGraph data={data} options={options} type={type} />
-      </div>
-    )
-  }
+  return (
+    <ChartistGraph
+      aria-label="Weekly sales"
+      className="ct-major-twelfth"
+      data={data}
+      options={options}
+      type="Line"
+    />
+  );
 }
-
-ReactDOM.render(<Bar />, document.body)
-
 ```
 
-### Options
+`data`, `options`, `responsiveOptions`, and `listener` are compared by reference. Memoize values
+that do not need to change so Chartist does not perform unnecessary work.
 
-Please check out [Chartist.js API documentation](http://gionkunz.github.io/chartist-js/api-documentation.html) for more details of the options.
+## Props
 
-* data - chart data (required)
-* type - chart type (required)
-* style - inline css styles (optional)
-* options - chart options (optional)
-* responsive-options - chart responsive options (optional)
+The props are a discriminated TypeScript union, so `data`, `options`, and event payloads are typed
+for the selected chart type.
 
-To add support for aspect ratio
+| Prop | Type | Required | Description |
+| --- | --- | --- | --- |
+| `type` | `"Line" \| "Bar" \| "Pie"` | Yes | Selects the Chartist constructor. |
+| `data` | Chartist data for `type` | Yes | Labels and series rendered by Chartist. |
+| `options` | Chartist options for `type` | No | Updates the existing chart when its reference changes. |
+| `responsiveOptions` | `[mediaQuery, options][]` | No | Recreates the chart when its reference changes. |
+| `listener` | Typed event-handler map | No | Adds and removes Chartist event listeners. |
+| `className` | `string` | No | Appended to the built-in `ct-chart` class. |
 
-```jsx
-<ChartistGraph className={'ct-octave'} data={data} options={options} type={type} />
+All other `<div>` attributes, including `aria-*`, `id`, `role`, and `style`, are forwarded to the
+chart container.
+
+### Responsive options
+
+```tsx
+const responsiveOptions = [
+  ["screen and (max-width: 640px)", { showPoint: false }],
+];
+
+<ChartistGraph
+  data={{ labels: ["A", "B"], series: [[3, 7]] }}
+  responsiveOptions={responsiveOptions}
+  type="Line"
+/>;
 ```
 
-### Note
+Chartist only accepts responsive options when constructing a chart, so changing this prop safely
+detaches and recreates the instance.
 
-This module does not include the css files for Chartist. If you want to add it, include their CDN in your html file
+### Events
 
-```HTML
-<link rel="stylesheet" href="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
-<script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+```tsx
+<ChartistGraph
+  data={{ series: [20, 30, 50] }}
+  listener={{
+    created: ({ svg }) => console.log(svg),
+    draw: (event) => console.log(event.type),
+  }}
+  type="Pie"
+/>;
 ```
 
-Or use `bower` or `npm` to install Chartist and include it in your build process.
+### Accessing the Chartist instance
 
-```
-$ npm install chartist
-```
+```tsx
+import { useRef } from "react";
+import ChartistGraph, { type ChartistGraphHandle } from "react-chartist";
 
-Or
+const chartRef = useRef<ChartistGraphHandle>(null);
 
-```
-$ bower install chartist
-```
+<ChartistGraph data={{ series: [[1, 2, 3]] }} ref={chartRef} type="Bar" />;
 
-### Development
-
-```
-$ npm install
+chartRef.current?.chart?.update();
 ```
 
-To build run `npm run build`
+The handle exposes `chart`, the current Chartist instance, and `element`, the owned container div.
 
-### Changelog
+## Accessibility
 
-If you want to support react version under v0.13, use `npm install react-chartist@0.9.0`
+Charts are visual summaries, not accessible replacements for their source data. Add an accessible
+name with `aria-label` or `aria-labelledby`, and provide the same information in text or a table
+when users need to inspect exact values.
 
-### License
+## Migrating from 0.x
 
-MIT
+Version 1 contains intentional breaking changes:
 
-[npm-image]: https://img.shields.io/npm/v/react-chartist.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/react-chartist
-[downloads-image]: http://img.shields.io/npm/dm/react-chartist.svg?style=flat-square
-[downloads-url]: https://npmjs.org/package/react-chartist
+- Chartist `^1.5.0` replaces the old `^0.10.1` API.
+- React `^18.2.0` and `^19.0.0` are supported; older React versions are not.
+- Types now come directly from Chartist and are selected by the `type` prop.
+- `responsiveOptions` uses the documented camel-case name and recreates the chart when changed.
+- Event listeners now update when the `listener` prop changes.
+- Children are no longer cloned into the Chartist-owned container.
+- The imperative ref is `{ chart, element }` rather than the old class component instance.
+- CommonJS users should use `const { ChartistGraph } = require("react-chartist")`.
+
+## Development
+
+Node 20.19 or newer is required for the development toolchain.
+
+```sh
+npm install
+npm run check
+```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for the project workflow.
+
+## License
+
+MIT © Fraser Xu
