@@ -30,5 +30,3 @@ jobs:
             dist_tag=latest
           fi
           npm publish --access public --provenance --tag "$dist_tag"
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
