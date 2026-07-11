@@ -1,6 +1,6 @@
 {
   "name": "react-chartist",
-  "version": "1.0.0-rc.1",
+  "version": "1.0.0",
   "description": "A small, typed React component for Chartist.js",
   "keywords": [
     "react",
