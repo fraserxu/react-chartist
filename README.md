@@ -6,6 +6,8 @@
 
 A small, typed React component for [Chartist.js](https://chartist.dev/).
 
+[View the live demo](https://fraserxu.github.io/react-chartist/)
+
 Version 1 is a modern reboot for Chartist 1.x and React 18/19. It keeps the familiar
 `<ChartistGraph>` API while replacing the legacy Babel build and old Chartist constructors.
 
