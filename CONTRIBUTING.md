@@ -4,7 +4,7 @@ Thanks for helping improve react-chartist.
 
 ## Setup
 
-Use Node 20.19 or newer for the development toolchain.
+Use Node 20.19 or newer and npm 11.18 for the development toolchain.
 
 ```sh
 npm install

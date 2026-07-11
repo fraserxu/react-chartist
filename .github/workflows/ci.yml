@@ -20,6 +20,7 @@ jobs:
         with:
           cache: npm
           node-version: ${{ matrix.node-version }}
+      - run: npm install --global npm@11.18.0
       - run: npm ci
       - run: npm run check
 
@@ -31,6 +32,7 @@ jobs:
         with:
           cache: npm
           node-version: "24"
+      - run: npm install --global npm@11.18.0
       - run: npm ci
       - run: npm install --no-save react@18.3.1 react-dom@18.3.1 @types/react@18 @types/react-dom@18
       - run: npm run check

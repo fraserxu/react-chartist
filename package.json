@@ -44,6 +44,7 @@
   "engines": {
     "node": ">=18.18"
   },
+  "packageManager": "npm@11.18.0",
   "scripts": {
     "build": "tsup && tsc --project tsconfig.build.json",
     "check": "npm run lint && npm run typecheck && npm run test && npm run build && npm run typecheck:package",
