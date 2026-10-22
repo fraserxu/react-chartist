@@ -3,6 +3,16 @@
 All notable changes to this project are documented in this file. The project follows
 [Semantic Versioning](https://semver.org/).
 
+## 1.0.1 - Unreleased
+
+### Added
+
+- Chartist 2 support: the peer dependency range is now `^1.5.0 || ^2.0.0`, so npm no longer fails
+  with `ERESOLVE` next to Chartist 2 (#114).
+- Documentation for Chartist 2's opt-in `compat` plugin, needed for 1.x-style `draw`/`created`
+  listeners.
+- Tests and CI against Chartist 2.
+
 ## 1.0.0 - 2026-07-11
 
 ### Added

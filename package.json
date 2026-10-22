@@ -1,6 +1,6 @@
 {
   "name": "react-chartist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A small, typed React component for Chartist.js",
   "keywords": [
     "react",
@@ -57,7 +57,7 @@
     "typecheck:package": "tsc --ignoreConfig --noEmit --strict --skipLibCheck --target ES2022 --module NodeNext --moduleResolution NodeNext test/package-consumer.mts"
   },
   "peerDependencies": {
-    "chartist": "^1.5.0",
+    "chartist": "^1.5.0 || ^2.0.0",
     "react": "^18.2.0 || ^19.0.0"
   },
   "overrides": {
@@ -69,6 +69,7 @@
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "chartist": "^1.5.0",
+    "chartist-2": "npm:chartist@^2.1.0",
     "jsdom": "^29.1.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
