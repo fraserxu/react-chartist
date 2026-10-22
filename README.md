@@ -8,14 +8,18 @@ A small, typed React component for [Chartist.js](https://chartist.dev/).
 
 [View the live demo](https://fraserxu.github.io/react-chartist/)
 
-Version 1 is a modern reboot for Chartist 1.x and React 18/19. It keeps the familiar
-`<ChartistGraph>` API while replacing the legacy Babel build and old Chartist constructors.
+Version 1 is a modern reboot for Chartist 1.5+ and Chartist 2 with React 18/19. It keeps the
+familiar `<ChartistGraph>` API while replacing the legacy Babel build and old Chartist
+constructors.
 
 ## Install
 
 ```sh
 npm install react-chartist chartist
 ```
+
+The peer dependency range is `chartist@^1.5.0 || ^2.0.0` and `react@^18.2.0 || ^19.0.0`. See
+[Chartist 2](#chartist-2) for the one difference between the two Chartist majors.
 
 Import Chartist's stylesheet once in your application:
 
@@ -110,6 +114,38 @@ detaches and recreates the instance.
 />;
 ```
 
+With Chartist 2 these events are opt-in; see [Chartist 2](#chartist-2) for the `compat` plugin.
+
+### Chartist 2
+
+Chartist 2 is supported with no code changes. The `LineChart`, `BarChart`, and `PieChart`
+classes draw the same as in Chartist 1.5, and `data`, `options`, and `responsiveOptions` work as
+before.
+
+In Chartist 2 the 1.x events (`draw`, `created`, and friends) are opt-in. Add Chartist's `compat`
+plugin to receive them through the `listener` prop:
+
+```tsx
+import { compat } from "chartist/compat";
+
+<ChartistGraph
+  type="Line"
+  data={data}
+  options={{ plugins: [compat] }}
+  listener={{ draw: onDraw }}
+/>;
+```
+
+Without the plugin, Chartist 2 logs a one-time console warning and the listeners never fire.
+Like any other `options` value, hoist or memoize the object holding `plugins` because it is
+compared by reference.
+
+The npm `overrides` workaround for `ERESOLVE` errors next to Chartist 2 is no longer needed with
+react-chartist 1.0.1 or newer.
+
+Server rendering and hydration ([Chartist 2.1+](https://chartist.dev/docs/ssr-hydration/)) are
+not supported by this component yet; it creates the chart in `useEffect` on the client.
+
 ### Accessing the Chartist instance
 
 ```tsx
@@ -135,7 +171,7 @@ when users need to inspect exact values.
 
 Version 1 contains intentional breaking changes:
 
-- Chartist `^1.5.0` replaces the old `^0.10.1` API.
+- Chartist `^1.5.0` or `^2.0.0` replaces the old `^0.10.1` API.
 - React `^18.2.0` and `^19.0.0` are supported; older React versions are not.
 - Types now come directly from Chartist and are selected by the `type` prop.
 - `responsiveOptions` uses the documented camel-case name and recreates the chart when changed.
